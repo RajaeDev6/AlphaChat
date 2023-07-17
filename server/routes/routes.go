@@ -14,7 +14,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 func Configure() {
 	http.HandleFunc("/", homeHandler)
-	http.HandleFunc("/login", user.LoginHandler)
+	http.HandleFunc("/register", user.RegisterHandler)
 	fmt.Println("server running")
 	http.ListenAndServe(":8080", nil)
 }

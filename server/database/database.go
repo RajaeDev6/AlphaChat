@@ -2,7 +2,6 @@ package database
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"os"
 	"sync"
@@ -27,23 +26,16 @@ func Initialize() error {
 	}
 
 	MONGO_URI := os.Getenv("MONGO_URI")
-	if MONGO_URI == "" {
-		fmt.Printf("ERROR: could not load URI: %s", MONGO_URI)
-		return errors.New("MONGO_URI environment variable is not set")
-	}
 
 	DB_NAME := os.Getenv("DB_NAME")
-	if DB_NAME == "" {
-		fmt.Printf("ERROR: could not load NAME: %s", DB_NAME)
-		return errors.New("DB_NAME environment variable is not set")
-	}
 
 	// Create a new context with a timeout (e.g., 30 seconds)
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
 	// Connect to MongoDB
 	clientOptions := options.Client().ApplyURI(MONGO_URI)
+
 	client, err := mongo.Connect(ctx, clientOptions)
 	if err != nil {
 		return fmt.Errorf("failed to connect to MongoDB: %w", err)
@@ -51,7 +43,9 @@ func Initialize() error {
 
 	// Check the connection
 	err = client.Ping(context.Background(), nil)
+
 	if err != nil {
+
 		return fmt.Errorf("failed to ping MongoDB: %w", err)
 	}
 

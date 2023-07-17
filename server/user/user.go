@@ -1,8 +1,8 @@
 package user
 
 type User struct {
-	ID       string
-	Name     string
-	Email    string
-	Password string
+	ID       string `bson:"_id"`
+	Username string `bson:"username"`
+	Email    string `bson:"email"`
+	Password string `bson:"password"`
 }
