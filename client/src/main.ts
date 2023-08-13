@@ -1,24 +1,28 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+document.addEventListener("DOMContentLoaded", () => {
+  const messageInput = document.getElementById("messageInput") as HTMLInputElement;
+  const sendButton = document.getElementById("sendButton");
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+  if (sendButton && messageInput) {
+    sendButton.addEventListener("click", () => {
+      const messageText = messageInput.value.trim();
+      if (messageText !== "") {
+        // Create a new message element
+        const message = document.createElement("div");
+        message.className = "message sender"; // You can adjust the class here
+        message.innerHTML = `<p>${messageText}</p>`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+        // Append the new message to the conversation
+        const convo = document.querySelector(".convo");
+        if (convo) {
+          convo.appendChild(message);
+
+          // Clear the input field
+          messageInput.value = "";
+
+          // Automatically scroll to the bottom to show the latest message
+          convo.scrollTop = convo.scrollHeight;
+        }
+      }
+    });
+  }
+});
