@@ -22,3 +22,5 @@ go.work
 
 server/.env
 .git
+
+client/node_modules

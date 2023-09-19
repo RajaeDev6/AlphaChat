@@ -1,43 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/vite.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/css/style.css">
-  <title>Alpha Chat</title>
-</head>
-<body>
-  <div id="app">
-    <div class="chat-sidebar">
-      <div class="header">
-        <h1>Chats</h1>
-        <button class="create-button">+ Create Chat</button>
-      </div>
-      <div class="contacts">
-        <div class="contact">
-          <h3>Chat 1</h3>
-        </div>
-        <div class="contact">
-          <h3>Chat 2</h3>
-        </div>
-      </div>
-    </div>
-    <div class="chat">
-      <div class="convo">
-        <div class="message sender">
-          <p>This is the sender first message</p>
-        </div>
-        <div class="message receiver">
-          <p>This is the receiver first message</p>
-        </div>
-      </div>
-	<div class="send">
-	  <input id="messageInput" type="text" placeholder="Type your message...">
-	  <button id="sendButton">Send</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="src/css/style.css" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="app">
+		<!-- <nav class="navbar"><h1>Alpha</h1> -->
+		<!-- 	<button class="logout">Logout</button> -->
+		<!-- </nav> -->
+		<div class="chatbox">
+			<div class="contact-box">
+				<div class="contact-header">
+					<button>Create Chat</button>
+					<h2>Chats</h2>
+					<form>
+						<input type="search" placeholder="search contact" />
+						<!-- <button type="submit">Search</button> -->
+					</form>
+				</div>
+				<div class="contacts">
+					<div class="contact">
+						<h3>Tom</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>Steve</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>Gary</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>John</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>Caleb</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>Mark</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>Peter</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>Bob</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+					<div class="contact">
+						<h3>Carl</h3>	
+						<p>Hello this is the sender message</p>
+					</div>	
+				</div>
+			</div>
+				<div class="chat-content">
+					<div class="inbox">
+					<div class="chat-header">
+						<h2>John</h2>
+					</div>
+					<div class="message-box">
+						<!-- message here -->
+						<!-- <div class="message sender">Hello, this is a sender message.</div> -->
+						<!-- <div class="message receiver">this is a receiver message.</div> -->
+						<!-- <div class="message receiver">this is a receiver message.</div> -->
+						<!-- <div class="message sender">Hello, this is a sender message.</div> -->
+						<!-- <div class="message receiver">this is a receiver message.</div> -->
+					</div>
+					</div>
+					<form class="chat-form">
+						<input type="text" id="messageInput" placeholder="Type message here"/>
+						<button id="submitButton" type="submit">Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-    </div>
-  </div>
-  <script type="module" src="./src/main.ts"></script>
-</body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
